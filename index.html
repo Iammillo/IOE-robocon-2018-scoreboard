@@ -7,47 +7,6 @@
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"></link>
 		
 		<script language="javascript" type="text/javascript">
-			function getData1(){
-							   var xmlhttp;
-							   if (window.XMLHttpRequest) {
-								   xmlhttp = new XMLHttpRequest();               
-							   }           
-							   
-							   xmlhttp.onreadystatechange = function () {  
-								   if (this.readyState == 4) { 
-										var lines = this.responseText; 
-										var lineArr = lines.split('\n');
-										document.getElementById("red").innerHTML = lineArr[0];
-								   }               
-							   }
-								xmlhttp.open("GET", "red.txt", true);
-							   xmlhttp.send();   
-								}
-								
-		function getData2(){
-							   var xmlhttp2;
-							   if (window.XMLHttpRequest) {
-								   xmlhttp2 = new XMLHttpRequest();               
-							   }           
-							   xmlhttp2.onreadystatechange = function () {               
-								   if (this.readyState == 4) {                   
-									 var lines = this.responseText; 
-
-										var lineArr = lines.split('\n');
-										document.getElementById("blue").innerHTML = lineArr[0];     
-											
-								   }               
-							   }
-								xmlhttp2.open("GET", "blue.txt", true);
-							   xmlhttp2.send();   
-								}
-			
-		  var y = setInterval(function(){
-					getData1();
-					getData2();
-			},50);
-			
-
 			var red=0;
 			var blue=0;
 			var pos =0;
@@ -56,17 +15,7 @@
 			var setup=300;
 			var stoptime=0;
 			var defaulttime =1;
-			//this function is for updating scoring according to text file.
-			function loadFile(filePath) {
-										  var result = null;
-										  var xmlhttp = new XMLHttpRequest();
-										  xmlhttp.open("GET", filePath, false);
-										  xmlhttp.send();
-										  if (xmlhttp.status==200) {
-											result = xmlhttp.responseText;
-										  }
-										  return result;
-										}
+
 			function select1()//this function is for input of name of teams.
 			{
 				
@@ -183,11 +132,14 @@
 																							</select></span></p></div>
 			</div>
 			<div class="row">
-				<div class="col-xs-5"><p style="font-family:times new roman; font-size:180px;text-align:center;color:red" id="red">0</p></div>
+				<div class="col-xs-5" ><iframe src = "redframe.php" width="400" height="200" frameborder="0" marginheight="0" marginwidth="0" scrolling = NO ></iframe></div>
 				<div class="col-xs-2"><p style="font-size:80px; text-align:center;"><br />Vs</p></div>
-				<div class="col-xs-5"><p style="font-family:times new roman; font-size:180px;text-align:center;color:blue;" id ="blue">0</p></div>
+				<div class="col-xs-5" ><iframe src = "blueframe.php" width="400" height="200" frameborder="0" marginheight="0" marginwidth="0" scrolling = NO  id = "2"></iframe></div>
 			</div>
 		</div>
+		
+		
+		
 		<script src="https://code.jquery.com/jquery.js"></script>
 		<script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>
